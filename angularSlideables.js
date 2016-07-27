@@ -4,8 +4,8 @@ angular.module('angularSlideables', [])
         restrict:'C',
         compile: function (element, attr) {
             // wrap tag
-            var contents = element.html();
-            element.html('<div class="slideable_content" style="margin:0 !important; padding:0 !important" >' + contents + '</div>');
+            //var contents = element.html();
+            //element.html('<div class="slideable_content" style="margin:0 !important; padding:0 !important" >' + contents + '</div>');
 
             var cssObj = {
                 'transitionProperty': 'height'
@@ -39,9 +39,8 @@ angular.module('angularSlideables', [])
             var target, content;
 
             element.bind('click', function() {
-                if (!target) target = document.querySelectorAll(attrs.slideToggle);
+                target = document.querySelectorAll(attrs.slideToggle);
                 for(var i = 0; i < target.length; i++){
-                    if (!content) content = target[i].querySelector('.slideable_content');
 
                     if(target[i].getAttribute("expanded") === "true" || target[i].getAttribute("expanded") === true){
                         target[i].style.height = '0px';
@@ -49,9 +48,6 @@ angular.module('angularSlideables', [])
                         target[i].style.display = 'block';
                         target[i].setAttribute("expanded",false);
                     }else{
-                        content.style.border = '1px solid rgba(0,0,0,0)';
-                        var y = content.clientHeight;
-                        content.style.border = 0;
                         target[i].style.display = "inline";
                         target[i].style.overflowY = "scroll";
                         target[i].style.height = '100%';
