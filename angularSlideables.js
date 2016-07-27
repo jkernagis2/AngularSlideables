@@ -3,10 +3,6 @@ angular.module('angularSlideables', [])
     return {
         restrict:'C',
         compile: function (element, attr) {
-            // wrap tag
-            //var contents = element.html();
-            //element.html('<div class="slideable_content" style="margin:0 !important; padding:0 !important" >' + contents + '</div>');
-
             var cssObj = {
                 'transitionProperty': 'height'
             };
@@ -41,7 +37,6 @@ angular.module('angularSlideables', [])
             element.bind('click', function() {
                 target = document.querySelectorAll(attrs.slideToggle);
                 for(var i = 0; i < target.length; i++){
-
                     if(target[i].getAttribute("expanded") === "true" || target[i].getAttribute("expanded") === true){
                         target[i].style.height = '0px';
                         target[i].style.overflowY = "hidden";
@@ -53,7 +48,6 @@ angular.module('angularSlideables', [])
                         target[i].style.height = '100%';
                         target[i].setAttribute("expanded",true);
                     }
-
                 }
             });
         }
