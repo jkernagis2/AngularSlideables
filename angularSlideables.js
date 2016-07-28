@@ -1,3 +1,7 @@
+/*
+* Forked from https://github.com/EricWVGG/AngularSlideables -> https://github.com/jkernagis2/AngularSlideables
+*
+* */
 angular.module('angularSlideables', [])
 .directive('slideable', function () {
     return {
